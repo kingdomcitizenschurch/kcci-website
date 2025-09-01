@@ -1,91 +1,98 @@
-<!-- test -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kingdom Citizens Church International</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      font-family: 'Arial', sans-serif;
     }
-    header {
-      background-color: green;
-      color: gold;
-      text-align: center;
-      padding: 20px;
+    .navbar {
+      background-color: #006400; /* Dark Green */
     }
-    nav {
-      background: gold;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: green;
-      margin: 0 15px;
-      text-decoration: none;
+    .navbar-brand, .nav-link {
+      color: gold !important;
       font-weight: bold;
     }
-    section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x600/?church,worship') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .section-title {
+      color: #006400;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
     footer {
-      background-color: green;
+      background-color: #006400;
       color: gold;
       text-align: center;
-      padding: 10px;
-      margin-top: 20px;
+      padding: 15px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Kingdom Citizens Church International</h1>
-  <p>Altar of Love ❤️</p>
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#location">Location</a>
-  <a href="#contact">Contact</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">Kingdom Citizens</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<section id="about">
-  <h2>About Us</h2>
-  <p>We are sent to restore the lost soul and destinies back to Christ’s Kingdom for preservation through the preaching of the word of faith.</p>
-  <p><strong>Founding Pastors:</strong> Pastor Sam and Pastor Mrs. Felicia Balogun</p>
-</section>
+<!-- Hero Section -->
+<div class="hero">
+  <h1>Kingdom Citizens Church International</h1>
+  <p>Sent to restore lost souls and destinies back to Christ’s kingdom through the Word of Faith.</p>
+</div>
 
-<section id="services">
-  <h2>Service Times</h2>
-  <ul>
-    <li><strong>Sundays:</strong> 8:00 AM – 10:30 AM</li>
-    <li><strong>First Sunday (Special):</strong> 6:30 PM – 9:00 PM</li>
-    <li><strong>Wednesdays (Fasting & Communion):</strong> 5:00 PM – 6:30 PM</li>
+<!-- About Section -->
+<div class="container py-5" id="about">
+  <h2 class="section-title text-center">About Us</h2>
+  <p class="text-center">Founded by <strong>Pastor Sam & Pastor Mrs. Felicia Balogun</strong>, Kingdom Citizens Church International is a place of restoration, faith, and destiny fulfillment in Christ.</p>
+</div>
+
+<!-- Services Section -->
+<div class="container py-5" id="services">
+  <h2 class="section-title text-center">Service Times</h2>
+  <ul class="list-group list-group-flush text-center">
+    <li class="list-group-item">Sunday: 8:00 AM – 10:30 AM</li>
+    <li class="list-group-item">First Sunday (Special Service): 6:30 PM – 9:00 PM</li>
+    <li class="list-group-item">Wednesday (Fasting & Communion): 5:00 PM – 6:30 PM</li>
   </ul>
-</section>
+</div>
 
-<section id="location">
-  <h2>Location</h2>
-  <p>Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
-</section>
+<!-- Contact Section -->
+<div class="container py-5" id="contact">
+  <h2 class="section-title text-center">Contact Us</h2>
+  <p class="text-center">📍 Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
+  <p class="text-center">📘 <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">Facebook Page</a></p>
+  <div class="text-center">
+    <iframe src="https://www.google.com/maps?q=Abeokuta%20Ogun%20State%20Nigeria&output=embed" width="100%" height="300" style="border:0;"></iframe>
+  </div>
+</div>
 
-<section id="contact">
-  <h2>Contact & Social Media</h2>
-  <p>📘 Facebook: <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">Kingdom Citizens Church International</a></p>
-</section>
-
+<!-- Footer -->
 <footer>
   <p>&copy; 2025 Kingdom Citizens Church International | All Rights Reserved</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
