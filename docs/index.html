@@ -20,8 +20,10 @@
     .navbar { background: var(--kcci-green); }
     .navbar-brand { font-family: "Playfair Display", serif; color: var(--kcci-gold) !important; font-weight:700; font-size:1.2rem; }
     .nav-link { color: rgba(255,255,255,0.95) !important; font-weight:600; }
-    .btn-gold { background: var(--kcci-gold); color:#07100a; border-radius:8px; font-weight:700; }
-    .btn-outline-gold { border:2px solid var(--kcci-gold); color:var(--kcci-gold); background:transparent; border-radius:8px; font-weight:700; }
+    .btn-gold { background: var(--kcci-gold); color:#07100a; border-radius:8px; font-weight:700; transition: transform 0.3s ease; }
+    .btn-gold:hover { transform: scale(1.05); }
+    .btn-outline-gold { border:2px solid var(--kcci-gold); color:var(--kcci-gold); background:transparent; border-radius:8px; font-weight:700; transition: transform 0.3s ease; }
+    .btn-outline-gold:hover { transform: scale(1.05); }
 
     /* HERO */
     .hero {
@@ -51,16 +53,19 @@
 
     /* main content */
     section { padding:48px 20px; }
-    .card-elev { background:white; border-radius:12px; padding:20px; box-shadow: var(--card-shadow); }
+    .card-elev { background:white; border-radius:12px; padding:20px; box-shadow: var(--card-shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-elev:hover { transform: scale(1.03); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
 
     /* Pastors */
-    .pastor-img { width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,0.08); }
+    .pastor-img { width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .pastor-img:hover { transform: scale(1.05); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
 
     /* Events */
     .event-date { font-weight:700; color:var(--kcci-green); }
 
     /* Sermons */
-    .video-thumb { width:100%; border-radius:8px; overflow:hidden; background:#000; }
+    .video-thumb { width:100%; border-radius:8px; overflow:hidden; background:#000; transition: transform 0.3s ease; }
+    .video-thumb:hover { transform: scale(1.02); }
 
     footer { background:var(--kcci-green); color:var(--kcci-gold); padding:28px 20px; }
     footer a { color:var(--kcci-gold); text-decoration:none; font-weight:600; }
@@ -69,12 +74,23 @@
     @media (min-width:992px){
       .hero h1 { font-size:3.2rem; }
     }
+
+    /* FADE-UP SCROLL ANIMATION */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top fade-up">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="images/logo.png" alt="KCCI" style="height:44px; width:44px; object-fit:cover; border-radius:6px; margin-right:10px;">
@@ -97,7 +113,7 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero" style="background-image:url('images/hero.jpg');">
+  <header class="hero fade-up" style="background-image:url('images/hero.jpg');">
     <div class="hero-inner">
       <h1>Kingdom Citizens Church International</h1>
       <p class="lead">A Place of Purpose, Family, and Global Impact</p>
@@ -116,7 +132,7 @@
   </header>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="fade-up">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
@@ -130,28 +146,28 @@
 
         <div class="col-lg-6 mt-4 mt-lg-0">
           <div class="d-flex gap-3 justify-content-center">
-            <div class="text-center">
-              <img class="pastor-img" src="images/pastor-sam.jpg" alt="Pastor Sam">
+            <div class="text-center fade-up">
+              <img class="pastor-img hover-scale" src="images/pastor-sam.jpg" alt="Pastor Sam">
               <div style="margin-top:8px; font-weight:700">Pastor Sam Balogun</div>
               <div class="small text-muted">Founding Pastor</div>
             </div>
 
-            <div class="text-center">
-              <img class="pastor-img" src="images/pastor-felicia.jpg" alt="Mrs Felicia">
+            <div class="text-center fade-up">
+              <img class="pastor-img hover-scale" src="images/pastor-felicia.jpg" alt="Mrs Felicia">
               <div style="margin-top:8px; font-weight:700">Mrs Felicia Balogun</div>
               <div class="small text-muted">Co-Pastor</div>
             </div>
           </div>
 
           <div class="d-flex gap-3 justify-content-center mt-3">
-            <div class="text-center">
-              <img class="pastor-img" src="images/pastor-wale.jpg" alt="Pastor Wale">
+            <div class="text-center fade-up">
+              <img class="pastor-img hover-scale" src="images/pastor-wale.jpg" alt="Pastor Wale">
               <div style="margin-top:8px; font-weight:700">Pastor Wale Somoye</div>
               <div class="small text-muted">Pastor</div>
             </div>
 
-            <div class="text-center">
-              <img class="pastor-img" src="images/pastor-peter.jpg" alt="Pastor Peter">
+            <div class="text-center fade-up">
+              <img class="pastor-img hover-scale" src="images/pastor-peter.jpg" alt="Pastor Peter">
               <div style="margin-top:8px; font-weight:700">Pastor Peter Oluwakunbi</div>
               <div class="small text-muted">Pastor</div>
             </div>
@@ -163,26 +179,26 @@
   </section>
 
   <!-- EVENTS -->
-  <section id="events">
+  <section id="events" class="fade-up">
     <div class="container">
       <h3 class="section-title text-center">Upcoming Events</h3>
       <div class="row g-4 mt-3">
-        <div class="col-md-4">
-          <div class="card-elev p-3">
+        <div class="col-md-4 fade-up">
+          <div class="card-elev p-3 hover-scale">
             <div class="event-date">Sun, Apr 20</div>
             <h5 class="mt-2">Family Sunday Service</h5>
             <p class="small text-muted">8:00 AM • Wole Iredele Street</p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card-elev p-3">
+        <div class="col-md-4 fade-up">
+          <div class="card-elev p-3 hover-scale">
             <div class="event-date">Wed, Apr 23</div>
             <h5 class="mt-2">Midweek Fasting & Communion</h5>
             <p class="small text-muted">5:00 PM • Prayer Hall</p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card-elev p-3">
+        <div class="col-md-4 fade-up">
+          <div class="card-elev p-3 hover-scale">
             <div class="event-date">Sun, May 4</div>
             <h5 class="mt-2">First Sunday Special</h5>
             <p class="small text-muted">6:30 PM • Main Auditorium</p>
@@ -192,15 +208,14 @@
     </div>
   </section>
 
-  <!-- SERMONS (embedded using your video links) -->
-  <section id="sermons">
+  <!-- SERMONS -->
+  <section id="sermons" class="fade-up">
     <div class="container">
       <h3 class="section-title text-center">Latest Sermons</h3>
       <div class="row g-4 mt-2">
-        <div class="col-md-6">
-          <div class="card-elev p-2">
+        <div class="col-md-6 fade-up">
+          <div class="card-elev p-2 hover-scale">
             <div class="video-thumb">
-              <!-- Your provided video 1 -->
               <iframe width="100%" height="300" src="https://www.youtube.com/embed/Sa690V0tCH4" title="Sermon 1" frameborder="0" allowfullscreen></iframe>
             </div>
             <h5 class="mt-3">Sermon</h5>
@@ -208,10 +223,9 @@
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="card-elev p-2">
+        <div class="col-md-6 fade-up">
+          <div class="card-elev p-2 hover-scale">
             <div class="video-thumb">
-              <!-- Your provided video 2 -->
               <iframe width="100%" height="300" src="https://www.youtube.com/embed/M3ndXHpJu2g" title="Sermon 2" frameborder="0" allowfullscreen></iframe>
             </div>
             <h5 class="mt-3">Sermon</h5>
@@ -219,10 +233,9 @@
           </div>
         </div>
 
-        <div class="col-12 mt-3">
-          <div class="card-elev p-2">
+        <div class="col-12 mt-3 fade-up">
+          <div class="card-elev p-2 hover-scale">
             <div class="video-thumb">
-              <!-- Your provided video 3 -->
               <iframe width="100%" height="420" src="https://www.youtube.com/embed/R3nxW7pbTi8" title="Sermon 3" frameborder="0" allowfullscreen></iframe>
             </div>
             <h5 class="mt-3">Featured Sermon</h5>
@@ -235,10 +248,10 @@
   </section>
 
   <!-- DEVOTIONS -->
-  <section id="devotions">
+  <section id="devotions" class="fade-up">
     <div class="container">
       <h3 class="section-title text-center">Daily Devotions</h3>
-      <div class="card-elev p-4 mt-3 text-center">
+      <div class="card-elev p-4 mt-3 text-center hover-scale">
         <p class="mb-1"><strong>Today:</strong> Walking in Purpose — Seek God first and walk in obedience.</p>
         <a class="btn btn-outline-gold mt-3" href="#sermons">Read More Devotions</a>
       </div>
@@ -246,9 +259,9 @@
   </section>
 
   <!-- MEMBERSHIP CTA -->
-  <section id="membership">
+  <section id="membership" class="fade-up">
     <div class="container">
-      <div class="card-elev p-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="card-elev p-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 hover-scale">
         <div>
           <h4 style="margin:0; font-family:Playfair Display, serif;">Join the Family</h4>
           <p class="small text-muted mb-0">Register as a member and let us walk with you on your spiritual journey.</p>
@@ -262,12 +275,12 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="fade-up">
     <div class="container">
       <h3 class="section-title text-center">Contact & Visit</h3>
       <div class="row mt-3 g-4">
-        <div class="col-md-6">
-          <div class="card-elev p-3">
+        <div class="col-md-6 fade-up">
+          <div class="card-elev p-3 hover-scale">
             <p><strong>Address</strong><br>Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
             <p><strong>Email</strong><br><a href="mailto:kingdomcitizenschurchinternational@gmail.com">kingdomcitizenschurchinternational@gmail.com</a></p>
             <p><strong>Phone</strong><br>
@@ -279,28 +292,6 @@
             <p><strong>Facebook</strong><br><a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">kingdom citizens Church international</a></p>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card-elev p-3">
-            <iframe src="https://www.google.com/maps?q=Wole%20Iredele%20Street%20Abiola%20Abeokuta%20Ogun%20State&output=embed" width="100%" height="220" style="border:0;"></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container text-center">
-      <div style="font-weight:700">Kingdom Citizens Church International</div>
-      <div class="small">© <span id="year"></span> All rights reserved</div>
-    </div>
-  </footer>
-
-<script>
-  // set current year
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-  </html>
+        <div class="col-md-6 fade-up">
+          <div class="card-elev p-3 hover-scale">
+            <iframe src="https://www.google.com/maps?q=Wole%20Iredele%20Street%20Abiola%20Abeokuta%20Ogun%20State&output=embed"
