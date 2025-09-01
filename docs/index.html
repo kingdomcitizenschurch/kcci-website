@@ -1,142 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kingdom Citizens Church International</title>
+
+  <!-- Fonts & Bootstrap -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
+    :root{
+      --kcci-green: #0b7a3a;
+      --kcci-gold: #c9a94f;
+      --page-bg: #fbfbfb;
+      --card-shadow: 0 6px 18px rgba(11,122,58,0.06);
     }
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--page-bg); color:#1b1b1b; }
+    .navbar { background: var(--kcci-green); }
+    .navbar-brand { font-family: "Playfair Display", serif; color: var(--kcci-gold) !important; font-weight:700; font-size:1.2rem; }
+    .nav-link { color: rgba(255,255,255,0.95) !important; font-weight:600; }
+    .btn-gold { background: var(--kcci-gold); color:#07100a; border-radius:8px; font-weight:700; }
+    .btn-outline-gold { border:2px solid var(--kcci-gold); color:var(--kcci-gold); background:transparent; border-radius:8px; font-weight:700; }
 
-    header {
-      background: linear-gradient(90deg, gold, green);
-      color: white;
-      padding: 20px;
-      text-align: center;
+    /* HERO */
+    .hero {
+      min-height: 60vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      color:white;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.2em;
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(11,122,58,0.45), rgba(3,51,24,0.55));
+      z-index:0;
     }
+    .hero-inner { position:relative; z-index:1; max-width:1100px; padding:48px 20px; }
+    .hero h1 { font-family: "Playfair Display", serif; font-size:2.6rem; margin-bottom:8px; }
+    .hero p { font-size:1.05rem; margin-bottom:18px; color:rgba(255,255,255,0.95); }
 
-    nav {
-      background: #006400;
-      padding: 10px;
-      text-align: center;
-    }
+    /* service chips */
+    .service-chips { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
+    .chip { background: rgba(255,255,255,0.08); padding:10px 14px; border-radius:12px; color:#fff; font-weight:600; font-size:0.95rem; }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    /* main content */
+    section { padding:48px 20px; }
+    .card-elev { background:white; border-radius:12px; padding:20px; box-shadow: var(--card-shadow); }
 
-    section {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+    /* Pastors */
+    .pastor-img { width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,0.08); }
 
-    h2 {
-      color: #006400;
-    }
+    /* Events */
+    .event-date { font-weight:700; color:var(--kcci-green); }
 
-    .service-times, .contact, .devotions, .membership {
-      background: #fff;
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+    /* Sermons */
+    .video-thumb { width:100%; border-radius:8px; overflow:hidden; background:#000; }
 
-    footer {
-      background: #006400;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 20px;
-    }
+    footer { background:var(--kcci-green); color:var(--kcci-gold); padding:28px 20px; }
+    footer a { color:var(--kcci-gold); text-decoration:none; font-weight:600; }
 
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      background: gold;
-      color: #333;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: darkorange;
+    /* responsive text */
+    @media (min-width:992px){
+      .hero h1 { font-size:3.2rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kingdom Citizens Church International</h1>
-    <p>Sent to restore the lost soul and destinies back to Christ's kingdom</p>
-  </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#membership">Membership</a>
-    <a href="#devotions">Daily Devotions</a>
-    <a href="#contact">Contact</a>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="KCCI" style="height:44px; width:44px; object-fit:cover; border-radius:6px; margin-right:10px;">
+        Kingdom Citizens
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sermons">Sermons</a></li>
+          <li class="nav-item"><a class="nav-link" href="#devotions">Devotions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-3"><a class="btn btn-gold" href="#membership">Join</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
+  <!-- HERO -->
+  <header class="hero" style="background-image:url('images/hero.jpg');">
+    <div class="hero-inner">
+      <h1>Kingdom Citizens Church International</h1>
+      <p class="lead">Sent to restore lost souls and destinies back to Christ’s kingdom through the preaching of the Word of Faith.</p>
+
+      <div class="d-flex gap-2 justify-content-center mt-3">
+        <a href="#membership" class="btn btn-gold me-2">Become a Member</a>
+        <a href="#sermons" class="btn btn-outline-gold">Watch Sermons</a>
+      </div>
+
+      <div class="service-chips mt-4">
+        <div class="chip">Sunday • 8:00 — 10:30 AM</div>
+        <div class="chip">1st Sunday • 6:30 — 9:00 PM</div>
+        <div class="chip">Wed (Fasting & Communion) • 5:00 — 6:30 PM</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
   <section id="about">
-    <h2>About Us</h2>
-    <p>We are a church sent to restore the lost soul and destinies back to the Christ kingdom for preservation through the preaching of the word of faith.</p>
-    <p><strong>Founding Pastors:</strong> Pastor Sam and Pastor Mrs. Felicia Balogun</p>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="card-elev">
+            <h3 style="font-family:Playfair Display, serif; color:var(--kcci-green);">About Kingdom Citizens</h3>
+            <p>We exist to restore the lost soul and destinies back to the Christ Kingdom by preaching the Word of Faith and equipping believers to live in purpose and power.</p>
+            <p><strong>Founders:</strong> Pastor Sam & Mrs. Felicia Balogun</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="d-flex gap-3">
+            <div class="text-center">
+              <img class="pastor-img" src="images/pastor-sam.jpg" alt="Pastor Sam">
+              <div style="margin-top:8px; font-weight:700">Pastor Sam</div>
+              <div class="small text-muted">Founding Pastor</div>
+            </div>
+
+            <div class="text-center">
+              <img class="pastor-img" src="images/pastor-felicia.jpg" alt="Mrs Felicia">
+              <div style="margin-top:8px; font-weight:700">Mrs Felicia</div>
+              <div class="small text-muted">Co-Pastor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="services" class="service-times">
-    <h2>Service Times</h2>
-    <ul>
-      <li><strong>Sunday Service:</strong> 8:00 AM – 10:30 AM</li>
-      <li><strong>First Sunday (Special Service):</strong> 6:30 PM – 9:00 PM</li>
-      <li><strong>Wednesday (Fasting & Communion):</strong> 5:00 PM – 6:30 PM</li>
-    </ul>
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <h3 class="section-title text-center">Upcoming Events</h3>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4">
+          <div class="card-elev p-3">
+            <div class="event-date">Sun, Apr 20</div>
+            <h5 class="mt-2">Family Sunday Service</h5>
+            <p class="small text-muted">8:00 AM • Wole Iredele Street</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-elev p-3">
+            <div class="event-date">Wed, Apr 23</div>
+            <h5 class="mt-2">Midweek Fasting & Communion</h5>
+            <p class="small text-muted">5:00 PM • Prayer Hall</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-elev p-3">
+            <div class="event-date">Sun, May 4</div>
+            <h5 class="mt-2">First Sunday Special</h5>
+            <p class="small text-muted">6:30 PM • Main Auditorium</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="membership" class="membership">
-    <h2>Membership Registration</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="text" placeholder="Phone Number" required>
-      <textarea placeholder="Why do you want to join?" rows="4"></textarea>
-      <button type="submit">Register</button>
-    </form>
+  <!-- SERMONS -->
+  <section id="sermons">
+    <div class="container">
+      <h3 class="section-title text-center">Latest Sermons</h3>
+      <div class="row g-4 mt-2">
+        <div class="col-md-6">
+          <div class="card-elev p-2">
+            <div class="video-thumb">
+              <!-- Replace embed URL with your YouTube sermon -->
+              <iframe width="100%" height="300" src="https://www.youtube.com/embed/VYOjWnS4cMY" title="Sermon" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h5 class="mt-3">Walking in Purpose</h5>
+            <div class="small text-muted">Pastor Sam</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-elev p-2">
+            <div class="video-thumb">
+              <iframe width="100%" height="300" src="https://www.youtube.com/embed/YE7VzlLtp-4" title="Sermon" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h5 class="mt-3">Living by Faith</h5>
+            <div class="small text-muted">Mrs Felicia</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="devotions" class="devotions">
-    <h2>Daily Devotions</h2>
-    <p>Coming soon: Daily words of encouragement and faith to strengthen your walk with Christ.</p>
+  <!-- DEVOTIONS -->
+  <section id="devotions">
+    <div class="container">
+      <h3 class="section-title text-center">Daily Devotions</h3>
+      <div class="card-elev p-4 mt-3 text-center">
+        <p class="mb-1"><strong>Today:</strong> Walking in Purpose — Seek God first and walk in obedience.</p>
+        <a class="btn btn-outline-gold mt-3" href="#sermons">Read More Devotions</a>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Location:</strong> Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
-    <p><strong>Facebook:</strong> <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">Kingdom Citizens Church International</a></p>
+  <!-- MEMBERSHIP CTA -->
+  <section id="membership">
+    <div class="container">
+      <div class="card-elev p-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+        <div>
+          <h4 style="margin:0; font-family:Playfair Display, serif;">Join the Family</h4>
+          <p class="small text-muted mb-0">Register as a member and let us walk with you on your spiritual journey.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <!-- Replace with your Google Form link or mailto -->
+          <a class="btn btn-gold" href="mailto:info@yourdomain.org?subject=Membership%20Registration">Register by Email</a>
+          <a class="btn btn-outline-gold" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h3 class="section-title text-center">Contact & Visit</h3>
+      <div class="row mt-3 g-4">
+        <div class="col-md-6">
+          <div class="card-elev p-3">
+            <p><strong>Address</strong><br>Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
+            <p><strong>Email</strong><br><a href="mailto:info@yourdomain.org">info@yourdomain.org</a></p>
+            <p><strong>Facebook</strong><br><a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">kingdom citizens Church international</a></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-elev p-3">
+            <iframe src="https://www.google.com/maps?q=Wole%20Iredele%20Street%20Abiola%20Abeokuta%20Ogun%20State&output=embed" width="100%" height="220" style="border:0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Kingdom Citizens Church International. All rights reserved.</p>
+    <div class="container text-center">
+      <div style="font-weight:700">Kingdom Citizens Church International</div>
+      <div class="small">© <span id="year"></span> All rights reserved</div>
+    </div>
   </footer>
+
+<script>
+  // set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
