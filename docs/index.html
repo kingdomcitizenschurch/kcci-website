@@ -16,14 +16,16 @@
       --page-bg: #fbfbfb;
       --card-shadow: 0 6px 18px rgba(11,122,58,0.06);
     }
-    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--page-bg); color:#1b1b1b; }
+
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--page-bg); color:#1b1b1b; transition: all 0.3s ease; }
+
     .navbar { background: var(--kcci-green); }
     .navbar-brand { font-family: "Playfair Display", serif; color: var(--kcci-gold) !important; font-weight:700; font-size:1.2rem; }
     .nav-link { color: rgba(255,255,255,0.95) !important; font-weight:600; }
-    .btn-gold { background: var(--kcci-gold); color:#07100a; border-radius:8px; font-weight:700; transition: transform 0.3s ease; }
-    .btn-gold:hover { transform: scale(1.05); }
-    .btn-outline-gold { border:2px solid var(--kcci-gold); color:var(--kcci-gold); background:transparent; border-radius:8px; font-weight:700; transition: transform 0.3s ease; }
-    .btn-outline-gold:hover { transform: scale(1.05); }
+    .btn-gold { background: var(--kcci-gold); color:#07100a; border-radius:8px; font-weight:700; transition: all 0.3s ease; }
+    .btn-gold:hover { opacity:0.9; }
+    .btn-outline-gold { border:2px solid var(--kcci-gold); color:var(--kcci-gold); background:transparent; border-radius:8px; font-weight:700; transition: all 0.3s ease; }
+    .btn-outline-gold:hover { background: var(--kcci-gold); color:#fff; }
 
     /* HERO */
     .hero {
@@ -36,6 +38,7 @@
       background-position:center;
       position:relative;
       color:white;
+      overflow:hidden;
     }
     .hero::after{
       content:"";
@@ -43,9 +46,13 @@
       background: linear-gradient(180deg, rgba(11,122,58,0.45), rgba(3,51,24,0.55));
       z-index:0;
     }
-    .hero-inner { position:relative; z-index:1; max-width:1100px; padding:48px 20px; }
-    .hero h1 { font-family: "Playfair Display", serif; font-size:2.6rem; margin-bottom:8px; }
+    .hero-inner { position:relative; z-index:1; max-width:1100px; padding:48px 20px; animation: fadeIn 1.5s ease-in-out; }
+    .hero h1 { font-family: "Playfair Display", serif; font-size:2.6rem; margin-bottom:8px; animation: slideDown 1.5s ease-in-out; }
     .hero p { font-size:1.05rem; margin-bottom:18px; color:rgba(255,255,255,0.95); }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+    @keyframes slideDown { from {transform:translateY(-20px); opacity:0} to {transform:translateY(0); opacity:1} }
 
     /* service chips */
     .service-chips { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
@@ -53,19 +60,22 @@
 
     /* main content */
     section { padding:48px 20px; }
-    .card-elev { background:white; border-radius:12px; padding:20px; box-shadow: var(--card-shadow); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .card-elev:hover { transform: scale(1.03); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+    .card-elev { background:white; border-radius:12px; padding:20px; box-shadow: var(--card-shadow); transition: transform 0.3s ease; }
+    .card-elev:hover { transform: translateY(-6px); }
 
     /* Pastors */
-    .pastor-img { width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .pastor-img:hover { transform: scale(1.05); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+    .pastor-img { width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+
+    /* Church gallery */
+    .church-img { width:100%; border-radius:12px; box-shadow: var(--card-shadow); transition: transform 0.3s ease; }
+    .church-img:hover { transform: scale(1.03); }
 
     /* Events */
     .event-date { font-weight:700; color:var(--kcci-green); }
 
     /* Sermons */
-    .video-thumb { width:100%; border-radius:8px; overflow:hidden; background:#000; transition: transform 0.3s ease; }
-    .video-thumb:hover { transform: scale(1.02); }
+    .video-thumb { width:100%; border-radius:8px; overflow:hidden; background:#000; }
 
     footer { background:var(--kcci-green); color:var(--kcci-gold); padding:28px 20px; }
     footer a { color:var(--kcci-gold); text-decoration:none; font-weight:600; }
@@ -74,23 +84,12 @@
     @media (min-width:992px){
       .hero h1 { font-size:3.2rem; }
     }
-
-    /* FADE-UP SCROLL ANIMATION */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-up.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top fade-up">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="images/logo.png" alt="KCCI" style="height:44px; width:44px; object-fit:cover; border-radius:6px; margin-right:10px;">
@@ -113,7 +112,7 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero fade-up" style="background-image:url('images/hero.jpg');">
+  <header class="hero" style="background-image:url('images/hero.jpg');">
     <div class="hero-inner">
       <h1>Kingdom Citizens Church International</h1>
       <p class="lead">A Place of Purpose, Family, and Global Impact</p>
@@ -132,11 +131,14 @@
   </header>
 
   <!-- ABOUT -->
-  <section id="about" class="fade-up">
+  <section id="about">
     <div class="container">
+
       <div class="row align-items-center">
+
+        <!-- About Text -->
         <div class="col-lg-6">
-          <div class="card-elev">
+          <div class="card-elev fade-up">
             <h3 style="font-family:Playfair Display, serif; color:var(--kcci-green);">About Kingdom Citizens</h3>
             <p>For over 12 years, Kingdom Citizens Church International has stood as a beacon of hope and a center for spiritual growth in the very heart of Abeokuta. Founded by God through the visionary leadership of Pastors Sam and Felicia Balogun, our church is more than a building—it's a vibrant family and a movement dedicated to raising purposeful believers.</p>
             <p>We are located at <strong>Wole Iredele Street, Abiola, Abeokuta</strong>. Our mission is to empower individuals to discover their God-given identity and destiny as true citizens of His Kingdom.</p>
@@ -144,61 +146,72 @@
           </div>
         </div>
 
+        <!-- Church & Pastors -->
         <div class="col-lg-6 mt-4 mt-lg-0">
-          <div class="d-flex gap-3 justify-content-center">
+
+          <!-- Church Gallery -->
+          <div class="row g-3 mb-4 fade-up">
+            <div class="col-6 col-md-4 col-lg-4">
+              <img src="images/Church 1.jpg" alt="Church 1" class="church-img">
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <img src="images/Church 2.jpg" alt="Church 2" class="church-img">
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <img src="images/Church 3.jpg" alt="Church 3" class="church-img">
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <img src="images/Church 4.jpg" alt="Church 4" class="church-img">
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <img src="images/Church 5.jpg" alt="Church 5" class="church-img">
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <img src="images/Church 6.jpg" alt="Church 6" class="church-img">
+            </div>
+          </div>
+
+          <!-- Pastors -->
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
             <div class="text-center fade-up">
-              <img class="pastor-img hover-scale" src="images/pastor-sam.jpg" alt="Pastor Sam">
+              <img class="pastor-img hover-scale" src="images/Pastor Sam Balogun.jpg" alt="Pastor Sam">
               <div style="margin-top:8px; font-weight:700">Pastor Sam Balogun</div>
               <div class="small text-muted">Founding Pastor</div>
             </div>
-
             <div class="text-center fade-up">
-              <img class="pastor-img hover-scale" src="images/pastor-felicia.jpg" alt="Mrs Felicia">
+              <img class="pastor-img hover-scale" src="images/Pastor Mrs Felicia Balogun.jpg" alt="Mrs Felicia">
               <div style="margin-top:8px; font-weight:700">Mrs Felicia Balogun</div>
               <div class="small text-muted">Co-Pastor</div>
             </div>
           </div>
 
-          <div class="d-flex gap-3 justify-content-center mt-3">
-            <div class="text-center fade-up">
-              <img class="pastor-img hover-scale" src="images/pastor-wale.jpg" alt="Pastor Wale">
-              <div style="margin-top:8px; font-weight:700">Pastor Wale Somoye</div>
-              <div class="small text-muted">Pastor</div>
-            </div>
-
-            <div class="text-center fade-up">
-              <img class="pastor-img hover-scale" src="images/pastor-peter.jpg" alt="Pastor Peter">
-              <div style="margin-top:8px; font-weight:700">Pastor Peter Oluwakunbi</div>
-              <div class="small text-muted">Pastor</div>
-            </div>
-          </div>
-
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- EVENTS -->
-  <section id="events" class="fade-up">
+  <section id="events">
     <div class="container">
       <h3 class="section-title text-center">Upcoming Events</h3>
       <div class="row g-4 mt-3">
-        <div class="col-md-4 fade-up">
-          <div class="card-elev p-3 hover-scale">
+        <div class="col-md-4">
+          <div class="card-elev p-3 fade-up">
             <div class="event-date">Sun, Apr 20</div>
             <h5 class="mt-2">Family Sunday Service</h5>
             <p class="small text-muted">8:00 AM • Wole Iredele Street</p>
           </div>
         </div>
-        <div class="col-md-4 fade-up">
-          <div class="card-elev p-3 hover-scale">
+        <div class="col-md-4">
+          <div class="card-elev p-3 fade-up">
             <div class="event-date">Wed, Apr 23</div>
             <h5 class="mt-2">Midweek Fasting & Communion</h5>
             <p class="small text-muted">5:00 PM • Prayer Hall</p>
           </div>
         </div>
-        <div class="col-md-4 fade-up">
-          <div class="card-elev p-3 hover-scale">
+        <div class="col-md-4">
+          <div class="card-elev p-3 fade-up">
             <div class="event-date">Sun, May 4</div>
             <h5 class="mt-2">First Sunday Special</h5>
             <p class="small text-muted">6:30 PM • Main Auditorium</p>
@@ -209,12 +222,12 @@
   </section>
 
   <!-- SERMONS -->
-  <section id="sermons" class="fade-up">
+  <section id="sermons">
     <div class="container">
       <h3 class="section-title text-center">Latest Sermons</h3>
       <div class="row g-4 mt-2">
-        <div class="col-md-6 fade-up">
-          <div class="card-elev p-2 hover-scale">
+        <div class="col-md-6">
+          <div class="card-elev p-2 fade-up">
             <div class="video-thumb">
               <iframe width="100%" height="300" src="https://www.youtube.com/embed/Sa690V0tCH4" title="Sermon 1" frameborder="0" allowfullscreen></iframe>
             </div>
@@ -222,9 +235,8 @@
             <div class="small text-muted">Kingdom Citizens</div>
           </div>
         </div>
-
-        <div class="col-md-6 fade-up">
-          <div class="card-elev p-2 hover-scale">
+        <div class="col-md-6">
+          <div class="card-elev p-2 fade-up">
             <div class="video-thumb">
               <iframe width="100%" height="300" src="https://www.youtube.com/embed/M3ndXHpJu2g" title="Sermon 2" frameborder="0" allowfullscreen></iframe>
             </div>
@@ -232,66 +244,7 @@
             <div class="small text-muted">Kingdom Citizens</div>
           </div>
         </div>
-
-        <div class="col-12 mt-3 fade-up">
-          <div class="card-elev p-2 hover-scale">
+        <div class="col-12 mt-3">
+          <div class="card-elev p-2 fade-up">
             <div class="video-thumb">
-              <iframe width="100%" height="420" src="https://www.youtube.com/embed/R3nxW7pbTi8" title="Sermon 3" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <h5 class="mt-3">Sermon Sermon</h5>
-            <div class="small text-muted">Kingdom Citizens</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- DEVOTIONS -->
-  <section id="devotions" class="fade-up">
-    <div class="container">
-      <h3 class="section-title text-center">Daily Devotions</h3>
-      <div class="card-elev p-4 mt-3 text-center hover-scale">
-        <p class="mb-1"><strong>Today:</strong> Walking in Purpose — Seek God first and walk in obedience.</p>
-        <a class="btn btn-outline-gold mt-3" href="#sermons">Read More Devotions</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- MEMBERSHIP CTA -->
-  <section id="membership" class="fade-up">
-    <div class="container">
-      <div class="card-elev p-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 hover-scale">
-        <div>
-          <h4 style="margin:0; font-family:Playfair Display, serif;">Join the Family</h4>
-          <p class="small text-muted mb-0">Register as a member and let us walk with you on your spiritual journey.</p>
-        </div>
-        <div class="d-flex gap-2">
-          <a class="btn btn-gold" href="mailto:kingdomcitizenschurchinternational@gmail.com?subject=Membership%20Registration">Register by Email</a>
-          <a class="btn btn-outline-gold" href="#contact">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="fade-up">
-    <div class="container">
-      <h3 class="section-title text-center">Contact & Visit</h3>
-      <div class="row mt-3 g-4">
-        <div class="col-md-6 fade-up">
-          <div class="card-elev p-3 hover-scale">
-            <p><strong>Address</strong><br>Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
-            <p><strong>Email</strong><br><a href="mailto:kingdomcitizenschurchinternational@gmail.com">kingdomcitizenschurchinternational@gmail.com</a></p>
-            <p><strong>Phone</strong><br>
-              <a href="tel:+2348034280774">+234 803 428 0774</a><br>
-              <a href="tel:+2347034215601">+234 703 421 5601</a><br>
-              <a href="tel:+2347032484259">+234 703 248 4259</a><br>
-              <a href="tel:+2349132577502">+234 913 257 7502</a>
-            </p>
-            <p><strong>Facebook</strong><br><a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">kingdom citizens Church international</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 fade-up">
-          <div class="card-elev p-3 hover-scale">
-            <iframe src="https://www.google.com/maps?q=Wole%20Iredele%20Street%20Abiola%20Abeokuta%20Ogun%20State&output=embed"
+              <iframe
