@@ -3,270 +3,879 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kingdom Citizens Church International</title>
-
-  <!-- Google Fonts & Bootstrap -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    :root {
-      --primary-green: #0a6f3a;
-      --gold-accent: #d4af37;
-      --page-bg: #fefefe;
-      --card-shadow: 0 6px 18px rgba(10,111,58,0.1);
-    }
-
-    body {
-      font-family: Inter, sans-serif;
-      background: var(--page-bg);
-      color: #1b1b1b;
-      margin:0; padding:0;
-      scroll-behavior: smooth;
-    }
-
-    .navbar { background: var(--primary-green); }
-    .navbar-brand { font-family: "Playfair Display", serif; color: var(--gold-accent) !important; font-weight:700; font-size:1.2rem; }
-    .nav-link { color: rgba(255,255,255,0.95) !important; font-weight:600; }
-    .btn-gold { background: var(--gold-accent); color:#07100a; border-radius:8px; font-weight:700; transition: all 0.3s; }
-    .btn-gold:hover { opacity:0.9; }
-    .btn-outline-gold { border:2px solid var(--gold-accent); color:var(--gold-accent); background:transparent; border-radius:8px; font-weight:700; transition: all 0.3s; }
-    .btn-outline-gold:hover { background: var(--gold-accent); color:#fff; }
-
-    .hero {
-      min-height: 60vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      background-size:cover;
-      background-position:center;
-      position:relative;
-      color:white;
-    }
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(10,111,58,0.5), rgba(3,51,24,0.6));
-      z-index:0;
-    }
-    .hero-inner { position:relative; z-index:1; max-width:1100px; padding:48px 20px; }
-    .hero h1 { font-family: "Playfair Display", serif; font-size:2.6rem; margin-bottom:8px; animation: slideDown 1.5s ease-in-out; }
-    .hero p { font-size:1.05rem; margin-bottom:18px; color:rgba(255,255,255,0.95); }
-    @keyframes slideDown { from {transform:translateY(-20px); opacity:0} to {transform:translateY(0); opacity:1} }
-
-    .service-chips { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px; }
-    .chip { background: rgba(255,255,255,0.08); padding:10px 14px; border-radius:12px; color:#fff; font-weight:600; font-size:0.95rem; }
-
-    section { padding:48px 20px; }
-    .card-elev { background:white; border-radius:12px; padding:20px; box-shadow: var(--card-shadow); transition: transform 0.3s ease; }
-    .card-elev:hover { transform: translateY(-6px); }
-    .pastor-img { width:96px; height:96px; object-fit:cover; border-radius:50%; border:4px solid #fff; box-shadow:0 6px 16px rgba(0,0,0,0.08); transition: transform 0.3s; }
-    .pastor-img:hover { transform: scale(1.05); }
-    .church-img { width:100%; border-radius:12px; box-shadow: var(--card-shadow); transition: transform 0.3s; }
-    .church-img:hover { transform: scale(1.03); }
-
-    .event-date { font-weight:700; color:var(--primary-green); }
-    .video-thumb { width:100%; border-radius:8px; overflow:hidden; background:#000; }
-
-    footer { background:var(--primary-green); color:var(--gold-accent); padding:28px 20px; }
-    footer a { color:var(--gold-accent); text-decoration:none; font-weight:600; }
-
-    @media (min-width:992px){ .hero h1 { font-size:3.2rem; } }
-    @media (max-width:576px){ .hero h1 { font-size:2rem; } .hero p { font-size:0.9rem; } }
-  </style>
+  <meta name="description" content="Kingdom Citizens Church International - A vibrant community in Abeokuta where purpose is discovered, families are strengthened, and global impact is made.">
+  <meta name="keywords" content="church, Abeokuta, Kingdom Citizens, faith, community, worship, sermons, Nigeria">
+  <meta name="author" content="Kingdom Citizens Church International">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Kingdom Citizens Church International">
+  <meta property="og:description" content="A Place of Purpose, Family, and Global Impact">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kingdomcitizenschurch.org">
+  <meta property="og:image" content="Church1.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kingdom Citizens Church International">
+  <meta name="twitter:description" content="A Place of Purpose, Family, and Global Impact">
+  <meta name="twitter:image" content="Church1.jpg">
+  
+  <title>Kingdom Citizens Church International - A Place of Purpose, Family, and Global Impact</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Kingdom Citizens Church International",
+    "description": "A vibrant community where purpose is discovered, families are strengthened, and global impact is made.",
+    "url": "https://kingdomcitizenschurch.org",
+    "telephone": "+2348034280774",
+    "email": "kingdomcitizenschurchinternational@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Wole Iredele Street, Abiola",
+      "addressLocality": "Abeokuta",
+      "addressRegion": "Ogun State",
+      "addressCountry": "Nigeria"
+    },
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Pastor Sam Balogun"
+      },
+      {
+        "@type": "Person",
+        "name": "Pastor Mrs. Felicia Balogun"
+      }
+    ],
+    "sameAs": [
+      "https://facebook.com/kingdomcitizenschurchinternational",
+      "https://youtube.com/@logosandrhema-f6w"
+    ]
+  }
+  </script>
 </head>
 <body>
 
+  <!-- Skip to main content for accessibility -->
+  <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" role="navigation" aria-label="Main navigation">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="KCCI" style="height:44px; width:44px; object-fit:cover; border-radius:6px; margin-right:10px;">
+      <a class="navbar-brand" href="#" aria-label="Kingdom Citizens Church International Home">
+        <img src="logo.png" alt="KCCI Logo" loading="lazy">
         Kingdom Citizens
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sermons">Sermons</a></li>
-          <li class="nav-item"><a class="nav-link" href="#devotions">Devotions</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item ms-3"><a class="btn btn-gold" href="#membership">Join</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" aria-label="About Us section">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events" aria-label="Events section">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sermons" aria-label="Sermons section">Sermons</a></li>
+          <li class="nav-item"><a class="nav-link" href="#devotions" aria-label="Devotions section">Devotions</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" aria-label="Contact section">Contact</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-gold" href="#membership" aria-label="Join our church family">Join Our Family</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <header class="hero" style="background-image:url('Church1.jpg');">
+  <header class="hero" style="background-image:url('Church1.jpg');" role="banner">
     <div class="hero-inner">
       <h1>Kingdom Citizens Church International</h1>
-      <p class="lead">A Place of Purpose, Family, and Global Impact</p>
-      <div class="d-flex gap-2 justify-content-center mt-3">
-        <a href="#membership" class="btn btn-gold me-2">Become a Member</a>
-        <a href="https://youtube.com/@logosandrhema-f6w?si=gNwBFg8VRRaZysVO" class="btn btn-outline-gold" target="_blank">🎥 Watch Us Online</a>
+      <p class="lead">A vibrant community where purpose is discovered, families are strengthened, and global impact is made.</p>
+      <div class="d-flex gap-3 justify-content-center mt-4 flex-wrap">
+        <a href="#membership" class="btn btn-gold" aria-label="Become a church member">Become a Member</a>
+        <a href="https://youtube.com/@logosandrhema-f6w?si=gNwBFg8VRRaZysVO" class="btn btn-outline-gold" target="_blank" rel="noopener noreferrer" aria-label="Watch our services online on YouTube">
+          <i class="fab fa-youtube" aria-hidden="true"></i> Watch Us Online
+        </a>
       </div>
-      <div class="service-chips mt-4">
-        <div class="chip">Sunday • 8:00 — 10:30 AM</div>
-        <div class="chip">1st Sunday • 6:30 — 9:00 PM</div>
-        <div class="chip">Wed (Fasting & Communion) • 5:00 — 6:30 PM</div>
+      <div class="service-chips mt-5" role="list" aria-label="Service times">
+        <div class="chip" role="listitem">Sunday Service • 8:00 — 10:30 AM</div>
+        <div class="chip" role="listitem">1st Sunday Special • 6:30 — 9:00 PM</div>
+        <div class="chip" role="listitem">Wed Midweek • 5:00 — 6:30 PM</div>
       </div>
     </div>
   </header>
 
-  <!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="row align-items-center">
-      
-      <!-- About Text -->
-      <div class="col-lg-6">
-        <div class="card-elev">
-          <h3 style="font-family:Playfair Display, serif; color:var(--primary-green);">About Kingdom Citizens</h3>
-          <p>For over 12 years, Kingdom Citizens Church International has stood as a beacon of hope and spiritual growth in Abeokuta. Founded by God through Pastors Sam and Felicia Balogun, our church is more than a building—it's a vibrant family and a movement dedicated to raising purposeful believers.</p>
-          <p>We are located at <strong>Wole Iredele Street, Abiola, Abeokuta</strong>. Our mission is to empower individuals to discover their God-given identity and destiny as true citizens of His Kingdom.</p>
-          <p><strong>Mission:</strong> To restore lost souls and destinies back to Christ’s kingdom through preaching the word of faith.</p>
-        </div>
-      </div>
-
-      <!-- Church Images & Pastors -->
-      <div class="col-lg-6 mt-4 mt-lg-0">
-        <div class="row g-3 mb-4">
-          <div class="col-6 col-md-4"><img src="Church1.jpg" alt="Church 1" class="church-img"></div>
-          <div class="col-6 col-md-4"><img src="Church2.jpg" alt="Church 2" class="church-img"></div>
-          <div class="col-6 col-md-4"><img src="Church3.jpg" alt="Church 3" class="church-img"></div>
-          <div class="col-6 col-md-4"><img src="Church4.jpg" alt="Church 4" class="church-img"></div>
-          <div class="col-6 col-md-4"><img src="Church5.jpg" alt="Church 5" class="church-img"></div>
-          <div class="col-6 col-md-4"><img src="Church6.jpg" alt="Church 6" class="church-img"></div>
-        </div>
-
-        <div class="d-flex gap-3 justify-content-center flex-wrap">
-          <div class="text-center">
-            <img class="pastor-img" src="pastorSamBalogun.jpg" alt="Pastor Sam">
-            <div style="margin-top:8px; font-weight:700">Pastor Sam Balogun</div>
-            <div class="small text-muted">Founding Pastor</div>
-          </div>
-          <div class="text-center">
-            <img class="pastor-img" src="pastorMrsFeliciaBalogun.jpg" alt="Mrs Felicia">
-            <div style="margin-top:8px; font-weight:700">Mrs Felicia Balogun</div>
-            <div class="small text-muted">Co-Pastor</div>
+  <main id="main-content">
+    <!-- ABOUT -->
+    <section id="about" class="container" aria-labelledby="about-heading">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="card-elev">
+            <h2 id="about-heading" class="text-primary-green">About Kingdom Citizens</h2>
+            <p>For over 12 years, Kingdom Citizens Church International has stood as a beacon of hope and spiritual growth in Abeokuta. Founded by God through Pastors Sam and Felicia Balogun, our church is more than a building—it's a vibrant family and a movement dedicated to raising purposeful believers.</p>
+            <p>We are located at <strong>Wole Iredele Street, Abiola, Abeokuta</strong>. Our mission is to empower individuals to discover their God-given identity and destiny as true citizens of His Kingdom.</p>
+            <p><strong>Our Mission:</strong> To restore lost souls and destinies back to Christ's kingdom through preaching the word of faith.</p>
+            <a href="#contact" class="btn btn-outline-gold mt-3" aria-label="Get directions to our church">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Get Directions
+            </a>
           </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-  <!-- SERMONS -->
-  <section id="sermons">
-    <div class="container">
-      <h3 class="text-center mb-4" style="color:var(--primary-green);">Latest Sermons</h3>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card-elev p-2">
-            <div class="video-thumb">
-              <iframe width="100%" height="300" src="https://www.youtube.com/embed/Sa690V0tCH4" title="Sermon 1" frameborder="0" allowfullscreen></iframe>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="row g-3 mb-4" role="img" aria-label="Church photo gallery">
+            <div class="col-6 col-md-4">
+              <img src="Church1.jpg" alt="Kingdom Citizens Church building exterior" class="church-img" loading="lazy">
             </div>
-            <h5 class="mt-3">Walking in Faith</h5>
-            <div class="small text-muted">Pastor Sam Balogun • Apr 20, 2025</div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card-elev p-2">
-            <div class="video-thumb">
-              <iframe width="100%" height="300" src="https://www.youtube.com/embed/2zKk3D8Zk3M" title="Sermon 2" frameborder="0" allowfullscreen></iframe>
+            <div class="col-6 col-md-4">
+              <img src="Church2.jpg" alt="Church interior during worship service" class="church-img" loading="lazy">
             </div>
-            <h5 class="mt-3">Living a Purposeful Life</h5>
-            <div class="small text-muted">Pastor Mrs. Felicia Balogun • Apr 18, 2025</div>
+            <div class="col-6 col-md-4">
+              <img src="Church3.jpg" alt="Church community gathering" class="church-img" loading="lazy">
+            </div>
+            <div class="col-6 col-md-4">
+              <img src="Church4.jpg" alt="Church special event" class="church-img" loading="lazy">
+            </div>
+            <div class="col-6 col-md-4">
+              <img src="Church5.jpg" alt="Worship service in progress" class="church-img" loading="lazy">
+            </div>
+            <div class="col-6 col-md-4">
+              <img src="Church6.jpg" alt="Church fellowship gathering" class="church-img" loading="lazy">
+            </div>
+          </div>
+
+          <div class="d-flex gap-4 justify-content-center flex-wrap" role="group" aria-label="Church leadership">
+            <div class="text-center">
+              <img class="pastor-img" src="pastorSamBalogun.jpg" alt="Pastor Sam Balogun, Founding Pastor" loading="lazy">
+              <div class="mt-2 fw-bold">Pastor Sam Balogun</div>
+              <div class="small text-light-muted">Founding Pastor</div>
+            </div>
+            <div class="text-center">
+              <img class="pastor-img" src="pastorMrsFeliciaBalogun.jpg" alt="Pastor Mrs. Felicia Balogun, Co-Pastor" loading="lazy">
+              <div class="mt-2 fw-bold">Pastor Mrs. Felicia Balogun</div>
+              <div class="small text-light-muted">Co-Pastor</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DEVOTIONS -->
-  <section id="devotions">
-    <div class="container">
-      <h3 class="text-center mb-4" style="color:var(--primary-green);">Daily Devotions</h3>
+    <!-- EVENTS -->
+    <section id="events" class="container" aria-labelledby="events-heading">
+      <h2 id="events-heading" class="text-center mb-5 text-primary-green">Upcoming Events & Gatherings</h2>
+      <div class="row g-4" role="list" aria-label="Upcoming church events">
+        <div class="col-md-4" role="listitem">
+          <div class="card-elev p-3">
+            <div class="event-date">Sunday, April 20th</div>
+            <h3 class="mt-2 h5">Family Sunday Service</h3>
+            <p class="small text-light-muted">8:00 AM • Wole Iredele Street</p>
+            <a href="#contact" class="btn btn-sm btn-outline-gold mt-2" aria-label="Learn more about Family Sunday Service">Learn More</a>
+          </div>
+        </div>
+        <div class="col-md-4" role="listitem">
+          <div class="card-elev p-3">
+            <div class="event-date">Wednesday, April 23rd</div>
+            <h3 class="mt-2 h5">Midweek Fasting & Communion</h3>
+            <p class="small text-light-muted">5:00 PM • Prayer Hall</p>
+            <a href="#contact" class="btn btn-sm btn-outline-gold mt-2" aria-label="Join Midweek Fasting & Communion">Join Us</a>
+          </div>
+        </div>
+        <div class="col-md-4" role="listitem">
+          <div class="card-elev p-3">
+            <div class="event-date">Sunday, May 4th</div>
+            <h3 class="mt-2 h5">First Sunday Special</h3>
+            <p class="small text-light-muted">6:30 PM • Main Auditorium</p>
+            <a href="#contact" class="btn btn-sm btn-outline-gold mt-2" aria-label="Get details about First Sunday Special">Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERMONS -->
+    <section id="sermons" class="container" aria-labelledby="sermons-heading">
+      <h2 id="sermons-heading" class="text-center mb-5 text-primary-green">Inspiring Sermons</h2>
+      <div class="row g-4" role="list" aria-label="Latest sermon videos">
+        <div class="col-md-6" role="listitem">
+          <div class="card-elev p-3">
+            <div class="video-thumb mb-3">
+              <iframe width="100%" height="300" src="https://www.youtube.com/embed/Sa690V0tCH4" title="Sermon: Walking in Faith by Pastor Sam Balogun" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3 class="mt-3 h5">Walking in Faith</h3>
+            <div class="small text-light-muted">Pastor Sam Balogun • April 20, 2025</div>
+            <a href="https://youtube.com/@logosandrhema-f6w" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-gold mt-3" aria-label="Watch Walking in Faith sermon on YouTube">
+              <i class="fab fa-youtube" aria-hidden="true"></i> Watch Now
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6" role="listitem">
+          <div class="card-elev p-3">
+            <div class="video-thumb mb-3">
+              <iframe width="100%" height="300" src="https://www.youtube.com/embed/2zKk3D8Zk3M" title="Sermon: Living a Purposeful Life by Pastor Mrs. Felicia Balogun" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <h3 class="mt-3 h5">Living a Purposeful Life</h3>
+            <div class="small text-light-muted">Pastor Mrs. Felicia Balogun • April 18, 2025</div>
+            <a href="https://youtube.com/@logosandrhema-f6w" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-gold mt-3" aria-label="Watch Living a Purposeful Life sermon on YouTube">
+              <i class="fab fa-youtube" aria-hidden="true"></i> Watch Now
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="https://youtube.com/@logosandrhema-f6w" target="_blank" rel="noopener noreferrer" class="btn btn-gold" aria-label="View all sermons on our YouTube channel">
+          <i class="fab fa-youtube" aria-hidden="true"></i> View All Sermons on YouTube
+        </a>
+      </div>
+    </section>
+
+    <!-- DEVOTIONS -->
+    <section id="devotions" class="container" aria-labelledby="devotions-heading">
+      <h2 id="devotions-heading" class="text-center mb-5 text-primary-green">Daily Devotions & Inspiration</h2>
       <div class="card-elev p-4 text-center">
-        <p class="mb-1"><strong>Today:</strong> Walking in Purpose — Seek God first and walk in obedience.</p>
-        <a class="btn btn-outline-gold mt-3" href="#sermons">Read More Devotions</a>
+        <p class="lead mb-3"><strong>Today's Devotion:</strong> Walking in Purpose — Seek God first and walk in obedience.</p>
+        <p class="text-light-muted">Dive deeper into daily scripture and find spiritual guidance for your journey.</p>
+        <a class="btn btn-gold mt-3" href="#sermons" aria-label="Read more devotions and spiritual content">
+          <i class="fas fa-book-open" aria-hidden="true"></i> Read More Devotions
+        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- MEMBERSHIP -->
-  <section id="membership">
-    <div class="container">
+    <!-- MEMBERSHIP -->
+    <section id="membership" class="container" aria-labelledby="membership-heading">
       <div class="card-elev p-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
         <div>
-          <h4 style="margin:0; font-family:Playfair Display, serif;">Join the Family</h4>
-          <p class="small text-muted mb-0">Register as a member and let us walk with you on your spiritual journey.</p>
+          <h2 id="membership-heading" class="mb-1 text-primary-green h4">Join Our Spiritual Family</h2>
+          <p class="small text-light-muted mb-0">Register as a member and let us walk with you on your spiritual journey, fostering growth and fellowship.</p>
         </div>
         <div class="d-flex gap-2 flex-wrap">
-          <a class="btn btn-gold" href="mailto:kingdomcitizenschurchinternational@gmail.com?subject=Membership%20Registration">Register by Email</a>
-          <a class="btn btn-outline-gold" href="#contact">Contact Us</a>
+          <a class="btn btn-gold" href="mailto:kingdomcitizenschurchinternational@gmail.com?subject=Membership%20Registration" aria-label="Register for church membership via email">
+            <i class="fas fa-envelope" aria-hidden="true"></i> Register by Email
+          </a>
+          <a class="btn btn-outline-gold" href="#contact" aria-label="Contact us for more information">
+            <i class="fas fa-phone" aria-hidden="true"></i> Connect With Us
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h3 class="text-center mb-4" style="color:var(--primary-green);">Contact Us</h3>
+    <!-- CONTACT -->
+    <section id="contact" class="container" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-center mb-5 text-primary-green">Get In Touch</h2>
       <div class="row g-4">
         <!-- Contact Info -->
         <div class="col-md-6">
-          <div class="card-elev p-3">
-            <p><strong>Address</strong><br>Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
-            <p><strong>Email</strong><br><a href="mailto:kingdomcitizenschurchinternational@gmail.com">kingdomcitizenschurchinternational@gmail.com</a></p>
-            <p><strong>Phone</strong><br>
-              <a href="tel:+2348034280774">+234 803 428 0774</a><br>
-              <a href="tel:+2347034215601">+234 703 421 5601</a><br>
-              <a href="tel:+2347032484259">+234 703 248 4259</a><br>
-              <a href="tel:+2349132577502">+234 913 257 7502</a>
-            </p>
-            <p><strong>Facebook</strong><br>
-              <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">Kingdom Citizens Church International</a>
-            </p>
+          <div class="card-elev p-4">
+            <h3 class="text-primary-green mb-3 h4">Our Location & Contact Details</h3>
+            <div class="mb-3">
+              <strong>Address:</strong><br>
+              <address class="mb-0">Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</address>
+            </div>
+            <div class="mb-3">
+              <strong>Email:</strong><br>
+              <a href="mailto:kingdomcitizenschurchinternational@gmail.com" class="text-decoration-none text-gold-accent">
+                <i class="fas fa-envelope" aria-hidden="true"></i> kingdomcitizenschurchinternational@gmail.com
+              </a>
+            </div>
+            <div class="mb-3">
+              <strong>Phone:</strong><br>
+              <a href="tel:+2348034280774" class="text-decoration-none text-gold-accent d-block">
+                <i class="fas fa-phone" aria-hidden="true"></i> +234 803 428 0774
+              </a>
+              <a href="tel:+2347034215601" class="text-decoration-none text-gold-accent d-block">
+                <i class="fas fa-phone" aria-hidden="true"></i> +234 703 421 5601
+              </a>
+              <a href="tel:+2347032484259" class="text-decoration-none text-gold-accent d-block">
+                <i class="fas fa-phone" aria-hidden="true"></i> +234 703 248 4259
+              </a>
+              <a href="tel:+2349132577502" class="text-decoration-none text-gold-accent d-block">
+                <i class="fas fa-phone" aria-hidden="true"></i> +234 913 257 7502
+              </a>
+            </div>
+            <div class="mb-0">
+              <strong>Social Media:</strong><br>
+              <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-gold-accent">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i> Follow us on Facebook
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Google Map -->
         <div class="col-md-6">
-          <div class="card-elev p-3">
-            <iframe src="https://www.google.com/maps?q=Wole%20Iredele%20Street%20Abiola%20Abeokuta%20Ogun%20State&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <div class="card-elev p-4">
+            <h3 class="text-primary-green mb-3 h4">Find Us on the Map</h3>
+            <iframe src="https://www.google.com/maps?q=Wole%20Iredele%20Street%20Abiola%20Abeokuta%20Ogun%20State&output=embed" width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy" title="Kingdom Citizens Church International location on Google Maps"></iframe>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container text-center">
+  <footer role="contentinfo">
+    <div class="container">
       <div class="mb-3">
-        <a href="#"><strong>Kingdom Citizens Church International</strong></a>
+        <a href="#" class="text-decoration-none" aria-label="Kingdom Citizens Church International home">
+          <strong>Kingdom Citizens Church International</strong>
+        </a>
       </div>
-      <p>Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</p>
-      <p>Email: <a href="mailto:kingdomcitizenschurchinternational@gmail.com">kingdomcitizenschurchinternational@gmail.com</a> | Phone: +234 803 428 0774</p>
-      <div class="mt-2">
-        <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank">Facebook</a> |
-        <a href="https://youtube.com/@logosandrhema-f6w" target="_blank">YouTube</a> |
-        <a href="#membership">Join Us</a>
+      <address class="mb-2">Wole Iredele Street, Abiola, Abeokuta, Ogun State, Nigeria</address>
+      <p class="mb-2">
+        Email: <a href="mailto:kingdomcitizenschurchinternational@gmail.com" class="text-decoration-none">kingdomcitizenschurchinternational@gmail.com</a> | 
+        Phone: <a href="tel:+2348034280774" class="text-decoration-none">+234 803 428 0774</a>
+      </p>
+      <div class="mt-3 d-flex justify-content-center gap-4 flex-wrap">
+        <a href="https://facebook.com/kingdomcitizenschurchinternational" target="_blank" rel="noopener noreferrer" class="text-decoration-none" aria-label="Visit our Facebook page">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+        </a>
+        <a href="https://youtube.com/@logosandrhema-f6w" target="_blank" rel="noopener noreferrer" class="text-decoration-none" aria-label="Visit our YouTube channel">
+          <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
+        </a>
+        <a href="#membership" class="text-decoration-none" aria-label="Join our church family">
+          <i class="fas fa-user-plus" aria-hidden="true"></i> Join Us
+        </a>
       </div>
-      <p class="mt-3">&copy; 2025 Kingdom Citizens Church International. All rights reserved.</p>
+      <p class="mt-4 mb-0">&copy; 2025 Kingdom Citizens Church International. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+  <!-- Custom JavaScript for enhanced functionality -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add loading state to video iframes
+    document.querySelectorAll('.video-thumb iframe').forEach(iframe => {
+      iframe.addEventListener('load', function() {
+        this.parentElement.classList.add('loaded');
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all cards for animation
+    document.querySelectorAll('.card-elev').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+
+    // Add active state to navigation links
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
-</html>
+  </html>
+  /* Kingdom Citizens Church International - Enhanced Styles */
+
+:root {
+  --primary-green: #0a6f3a;
+  --gold-accent: #d4af37;
+  --page-bg: #f8f9fa;
+  --card-shadow: 0 8px 24px rgba(10,111,58,0.15);
+  --text-color: #212529;
+  --light-text-color: #6c757d;
+  --white: #ffffff;
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--page-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+  background: var(--primary-green);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-family: "Playfair Display", serif;
+  color: var(--gold-accent) !important;
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 48px;
+  width: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 12px;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.95) !important;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--gold-accent) !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  background-color: var(--gold-accent);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Buttons */
+.btn-gold {
+  background: var(--gold-accent);
+  color: #07100a;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: var(--transition);
+  padding: 12px 28px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-gold:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  color: #07100a;
+}
+
+.btn-outline-gold {
+  border: 2px solid var(--gold-accent);
+  color: var(--gold-accent);
+  background: transparent;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: var(--transition);
+  padding: 10px 26px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline-gold:hover {
+  background: var(--gold-accent);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  padding: 80px 20px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,111,58,0.6), rgba(3,51,24,0.7));
+  z-index: 0;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  padding: 48px 20px;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  animation: slideDown 1.5s ease-in-out;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  margin-bottom: 25px;
+  color: rgba(255,255,255,0.95);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Service Chips */
+.service-chips {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.chip {
+  background: rgba(255,255,255,0.15);
+  padding: 12px 18px;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Sections */
+section {
+  padding: 60px 20px;
+  background-color: var(--white);
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+section:nth-of-type(even) {
+  background-color: var(--page-bg);
+}
+
+/* Cards */
+.card-elev {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-elev:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(10,111,58,0.25);
+}
+
+/* Images */
+.pastor-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--white);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: var(--transition);
+}
+
+.pastor-img:hover {
+  transform: scale(1.08);
+}
+
+.church-img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.church-img:hover {
+  transform: scale(1.03);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Event Styles */
+.event-date {
+  font-weight: 700;
+  color: var(--primary-green);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Video Styles */
+.video-thumb {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+
+.video-thumb iframe {
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  background: var(--primary-green);
+  color: var(--gold-accent);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer a {
+  color: var(--gold-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--white);
+}
+
+footer p {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 5px;
+}
+
+footer .fab, footer .fas {
+  margin-right: 8px;
+}
+
+/* Utility Classes */
+.text-primary-green {
+  color: var(--primary-green);
+}
+
+.text-gold-accent {
+  color: var(--gold-accent);
+}
+
+.text-light-muted {
+  color: var(--light-text-color);
+}
+
+/* Responsive Design */
+@media (min-width: 992px) {
+  .hero h1 {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .service-chips {
+    gap: 8px;
+  }
+  
+  .chip {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  section {
+    padding: 40px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .card-elev {
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand img {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .btn-gold, .btn-outline-gold {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .pastor-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus States */
+.btn-gold:focus,
+.btn-outline-gold:focus,
+.nav-link:focus {
+  outline: 2px solid var(--gold-accent);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.video-thumb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top: 3px solid var(--gold-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
